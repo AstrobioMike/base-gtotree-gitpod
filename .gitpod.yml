@@ -2,11 +2,9 @@ tasks:
   - name: initialize
     init: |
       curl -LO https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-      bash Miniconda3-latest*.sh -bfp /opt/conda && rm Miniconda3-latest*.sh
+      bash Miniconda3-latest*.sh -bfp ${HOME}/conda && rm Miniconda3-latest*.sh
       conda init && source ~/.bashrc
       conda create -n gtotree -c astrobiomike -c conda-forge -c bioconda -c defaults gtotree -y
-      mkdir -p .vscode
-      echo '{"python.pythonPath": "/opt/conda/bin/python"}' > .vscode/settings.json
     command: |
       conda init && source ~/.bashrc
       conda activate gtotree
