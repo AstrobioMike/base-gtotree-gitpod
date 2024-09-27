@@ -1,0 +1,16 @@
+image: continuumio/miniconda3
+tasks:
+  - name: initialize
+    init: |
+      conda init && source ~/.bashrc
+      conda create -n gtotree -c astrobiomike -c conda-forge -c bioconda -c defaults gtotree -y
+      echo '{"python.pythonPath": "/opt/conda/bin/python"}' > .vscode/settings.json
+    command: |
+      conda init && source ~/.bashrc
+
+vscode:
+  extensions:
+    - ms-python.debugpy
+    - eamodio.gitlens
+    - ms-python.python
+    - mechatroner.rainbow-csv # Highlight columns in csv files in different colors
