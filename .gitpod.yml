@@ -2,8 +2,8 @@ tasks:
   - name: initialize
     init: |
       curl -LO https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-      bash Miniconda3-latest*.sh -bfp /usr/local/ && rm Miniconda3-latest*.sh
-      
+      bash Miniconda3-latest*.sh -bfp ${HOME}/miniconda3 && rm Miniconda3-latest*.sh
+      source ${HOME}/miniconda3/etc/profile.d/conda.sh
       conda init && source ~/.bashrc
       conda create -n gtotree -c astrobiomike -c conda-forge -c bioconda -c defaults gtotree -y
     command: |
