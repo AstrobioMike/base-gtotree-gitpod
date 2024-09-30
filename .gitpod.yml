@@ -4,11 +4,13 @@ tasks:
       curl -LO https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
       bash Miniconda3-latest*.sh -bfp /workspace/miniconda3 && rm Miniconda3-latest*.sh
       source /workspace/miniconda3/etc/profile.d/conda.sh
-      conda init && source ~/.bashrc
+      conda init bash && source ~/.bashrc
       conda create -n gtotree -c astrobiomike -c conda-forge -c bioconda -c defaults gtotree -y
     command: |
-      conda init && source ~/.bashrc
+      source /workspace/miniconda3/etc/profile.d/conda.sh
+      conda init bash && source ~/.bashrc
       conda activate gtotree
+
 
 vscode:
   extensions:
